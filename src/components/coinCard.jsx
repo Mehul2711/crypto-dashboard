@@ -10,9 +10,28 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-export default function CoinCard({ coin, isFavorite, toggleFavorite }) {
+export default function CoinCard({
+  coin,
+  isFavorite,
+  toggleFavorite,
+  currency,
+}) {
+  const getSymbol = (currency) => {
+    switch (currency) {
+      case "usd":
+        return "$";
+      case "inr":
+        return "₹";
+      case "eur":
+        return "€";
+      case "gbp":
+        return "£";
+      default:
+        return "$";
+    }
+  };
   return (
-    <Card className=" shadow-2xl rounded-xl border-1">
+    <Card className=" shadow-2xl rounded-xl border-1 bg-gray-100">
       <CardContent>
         <div className="flex justify-between items-center">
           <div className="flex gap-2 items-center">
@@ -29,7 +48,8 @@ export default function CoinCard({ coin, isFavorite, toggleFavorite }) {
           </Button>
         </div>
         <div className="mt-2 font-bold text-xl">
-          ${coin.current_price.toLocaleString()}
+          {getSymbol(currency)}
+          {coin.current_price.toLocaleString()}
         </div>
         <div className="h-32">
           <ResponsiveContainer width="100%" height="100%">
