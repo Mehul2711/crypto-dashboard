@@ -55,7 +55,7 @@ export default function App() {
     <div className="w-full text-black bg-cyan-200">
       <div className="min-h-screen   ">
         <h1 className="text-3xl text-center mb-4 font-bold">
-          Crypto Dashboard
+          Crypto Price Tracker
         </h1>
         <div className="flex justify-center">
           <SearchFilters
